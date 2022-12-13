@@ -1,0 +1,21 @@
+{% extends 'login/base.html' %}
+
+{% block title %}
+Profile
+{% endblock title %}
+
+{% block css %}
+
+{% endblock css %}
+
+{% block content %}
+
+<h1>Hey {{ name }} , Welcome to your profile</h1>
+<a href="{% url 'logout' %}" class="btn btn-warning">logout</a>
+{% for msg in messages %}
+<div {% if msg.tags %} class="{{ msg.tags }}" {% endif %}>{{ msg }}</div>
+
+{% endfor %}
+
+
+{% endblock content %}
