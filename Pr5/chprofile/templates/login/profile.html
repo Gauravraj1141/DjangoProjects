@@ -1,0 +1,44 @@
+{% extends 'login/base.html' %}
+
+{% block title %}
+{{ name }}
+{% endblock title %}
+
+{% block css %}
+
+{% endblock css %}
+
+{% block content %}
+
+<h1>Hey {{ name }} , Welcome to your profile</h1>
+
+{% comment %} we give our userchange form {% endcomment %}
+
+<form action="" method="post">
+
+    {% csrf_token %}
+    {% for form in fm %}
+
+    <div>{{ form.label_tag }}</div>
+    <div class="m-3">{{ form }}</div>
+    <div class="m-3">{{ form.erros|striptags }}</div>
+
+
+    {% endfor %}
+
+    <input type="submit" value="save" class="btn btn-danger m-2">
+
+
+
+
+</form>
+
+<a href="{% url 'logout' %}" class="btn btn-warning">logout</a>
+<a href="{% url 'passwordch1' %}" class="btn btn-warning">Change Password direct</a>
+{% for msg in messages %}
+<div {% if msg.tags %} class="{{ msg.tags }}" {% endif %}>{{ msg }}</div>
+
+{% endfor %}
+
+
+{% endblock content %}
