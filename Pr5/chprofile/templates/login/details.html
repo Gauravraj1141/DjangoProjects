@@ -10,20 +10,8 @@
 
 {% block content %}
 
-<h1>Hey {{ name }} , Welcome to your profile</h1>
+<h3>hey it is {{ name }} profile data</h3>
 
-{% comment %} we give our userchange form {% endcomment %}
-
-
-{% if userdata != None %}
-{% for user in  userdata %}
-
-<a href="{% url 'details' user.id %}">{{ user.username }}</a><br>
-
-{% endfor %}
-
-
-{% endif %}
 
 <form action="" method="post">
 

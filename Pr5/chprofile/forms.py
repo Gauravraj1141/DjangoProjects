@@ -27,3 +27,12 @@ class user_profile_change(UserChangeForm):
     class Meta:
         model = User
         fields = ['username', 'first_name', 'last_name', 'email']
+
+
+class Admin_profile_view(UserChangeForm):
+    password = None
+
+    class Meta:
+        model = User
+        fields = "__all__"
+        labels = {"email": "Email"}
