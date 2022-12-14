@@ -1,0 +1,45 @@
+{% extends 'login/base.html' %}
+
+{% block title %}
+{{ name }}
+{% endblock title %}
+
+{% block css %}
+
+{% endblock css %}
+
+{% block content %}
+
+<h1>Hey {{ name }} , Welcome to your profile</h1>
+
+{% comment %} we give permission to user {% endcomment %}
+
+{% if perms.userparams.change_myblog %}
+
+<input type="submit" value="change">
+
+{% else %}
+<h4>no change access</h4>
+
+{% endif %}
+
+
+
+{% comment %} we want to all viewers our blog only and delete button also {% endcomment %}
+
+{% if perms.userparams.delete_myblog %}
+<h1>hey it is only for viewers and viewer can see this line which people in viewer group only they can see this line
+</h1>
+
+{% endif %}
+{% if perms.userparams.view_myblog %}
+<h1>hey it is only for viewers and viewer can see this line which people in viewer group only they can see this line
+</h1>
+
+{% endif %}
+
+
+<a href="{% url 'logout' %}" class="btn btn-warning">logout</a>
+
+
+{% endblock content %}
