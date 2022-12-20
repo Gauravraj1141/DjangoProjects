@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>get session</title>
+</head>
+
+<body>
+    <h1>hey we got session data here</h1>
+    <h4>{{ name.name }}</h4>
+    <h4>{{ name.Profession }}</h4>
+    <a href="{% url 'del' %}">delete seesion_data</a>
+    <a href="/">set session data</a>
+
+    <hr>
+    <h3>{% for keydata in key %}
+        {{ keydata }}:<br>
+
+        {% endfor %}</h3>
+    <hr>
+    <h3>{% for key,value in items %}
+        {{ key }}:{{ value }}<br>
+
+        {% endfor %}</h3>
+    <hr>
+    <h3>{% for key,value in items %}
+        {{ key }}:{{ value }}<br>
+
+        {% endfor %}</h3>
+    <hr>
+    <hr>
+    <h2>it is all times and expiry time</h2>
+    <h3>{{ datekey }} : {{ datevalue }}</h3>
+    <hr>
+
+
+</body>
+
+</html>
