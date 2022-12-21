@@ -9,6 +9,7 @@ def setsession(request):
 
     # here we can set expiry of our session here 10 means in 10 sec
     request.session.set_expiry(10)
+
     # if we give here 0 then it will expire when browser will be close
     # request.session.set_expiry(0)
 
