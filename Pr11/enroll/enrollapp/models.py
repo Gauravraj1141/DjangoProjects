@@ -51,3 +51,10 @@ def Pre_delete_signal(sender, instance, **kwargs):
     print("hey history data is : >> ", historydata)
     taskhistory.objects.create(taskhis=historydata)
     print('successfully added ...')
+
+
+@receiver(post_delete, sender=tasks)
+def Post_delete_signal(sender, instance, **kwargs):
+    print("-------------")
+    print("post delete signal generated............. ")
+    print(instance)
