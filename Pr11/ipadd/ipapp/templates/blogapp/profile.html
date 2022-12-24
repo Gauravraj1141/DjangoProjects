@@ -38,9 +38,22 @@ Profile
 
         <h3>Hey {{ name }} , Welcome to your blogs</h3>
 
-        <div class="d-flex justify-content-end">
-            <p>Ip Address : {{ ip }}</p>
+
+
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div class="d-grid justify-content-start">
+                <button type="button" class="btn btn-outline-info ">
+                    Login Count <span class="badge badge-warning">{{ ct }}</span>
+                </button>
+            </div>
+
+            <div class="d-flex justify-content-end">
+                <p>Ip Address : {{ ip }}</p>
+            </div>
         </div>
+
+
+
         <div class="d-flex justify-content-end">
             <a href="{% url 'showblog' %}" class="btn btn-outline-warning ">Add Blog</a>
         </div>

@@ -5,7 +5,12 @@ from django.contrib.auth import login, logout, authenticate
 from .models import User_Blog
 
 
+from django.contrib.auth.models import User
+
+from django.core.cache import cache
+
 # homepage
+
 
 def homepage(request):
     blogdata = User_Blog.objects.all()
@@ -81,7 +86,11 @@ def User_profile(request):
         blogdata = User_Blog.objects.filter(Author=author)
         # here we take ip address from session which we store in our signals when login
         ip = request.session.get("ip", 0)
-        context = {"blogs": blogdata, "name": author, "ip": ip}
+        myuser = request.user
+        print(myuser.pk)
+        logincount = cache.get("counter", version=myuser.pk)
+        context = {"blogs": blogdata, "name": author,
+                   "ip": ip, "ct": logincount}
         return render(request, "blogapp/profile.html", context)
 
     else:
